@@ -83,6 +83,7 @@ defmodule MyPlug do
   # функция выполняется в момент подключения из браузера.
   def call(conn, _opts) do
 
+    # открытие шаблона.
 	{:ok, file} = File.open("select.html", [:read, :utf8])
 	put_resp_content_type(conn, "text/plain")
 	sText = ""
@@ -90,11 +91,12 @@ defmodule MyPlug do
 	send_resp(conn, 200, read_file(file, conn, sText))
   end
   
-
+  # сложение строки и послед.
   def plusSrt(s1, a1) do
 	  s1 <> to_string(a1)
   end
-  def plusSrt2(sMain, sNew, sTag1, sTag2) do
+  # сложение двух строк, если нет ключ. слов.
+  def plusSrtExcept(sMain, sNew, sTag1, sTag2) do
 	  if sNew =~ sTag1 || sNew =~ sTag2 do
 	    sMain
 	  else
@@ -109,7 +111,7 @@ defmodule MyPlug do
 	# проверка, если не конец файла select.html.
     if aLine != :eof do
 	  # выполняется всегда, если нет ключ. слов: "@tr", "@ver"
-	  sText = plusSrt2(sText, stLine, "@tr", "@ver")
+	  sText = plusSrtExcept(sText, stLine, "@tr", "@ver")
 #     sText = sText <> stLine
 
       # добавляется заголовок таблицы.
