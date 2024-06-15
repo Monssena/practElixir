@@ -1,1 +1,1 @@
-C:\Erlang\Elixir\bin\elixir select.exs
+elixir select.exs

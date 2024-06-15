@@ -5,7 +5,7 @@
 
 Примерный вид таблицы:
 
-![image](https://user-images.githubusercontent.com/10297748/230993847-eabdf63d-0554-49e6-8985-93dfd7228a8c.png)
+![img.png](img.png)
 
 Пример гарантированно работает:
 1) Операционная система: Windows 11 Home, Version: 22H2, Build: 22621.1485;
